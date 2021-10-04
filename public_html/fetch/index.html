@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Week 3</title>
-</head>
-<body>
-   <input type="text id="inp" placeholder="">
-   <button id="bt" onclick="func()">Кнопка</button>
+<html>
+    <body>
+        <input type="text" id="inp">
+        <button id="bt" onclick="fetchtext();"></button>
+        <script>
+            async function fetchtext(){
+                let Response = await fetch(document.getElementById("inp").value);
+                document.getElementById("inp").value = '';
+                document.getElementById("inp").value = await Response.text();
+            }
+        </script>
+    </body>
 
-   <script>
-      async function func()
-      const input = document.querySelector('#inp');
-      const inputLink = input.value;
-
-      const response = await fetch(inputLink);
-      const rezult = await response.text();
-
-      input.value = rezult;
-   </script>
-</body>
 </html>
